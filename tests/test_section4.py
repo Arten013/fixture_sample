@@ -24,10 +24,14 @@ def test_ids_pop(ids):
 def foo():
     ...
 
+
 @fixture(scope="session")
 def foo_session(foo):
     ...
 
-@pytest.mark.xfail(strict=True, reason="function scope fixture is called by session scope fixture.")
+
+@pytest.mark.xfail(
+    strict=True, reason="function scope fixture is called by session scope fixture."
+)
 def test_scope_contradict(foo_session):
     ...

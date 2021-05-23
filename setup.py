@@ -1,6 +1,3 @@
 from distutils.core import setup
 
-setup(
-    name="mymodule",
-    packages=["mymodule"]
-)
+setup(name="mymodule", packages=["mymodule"])
