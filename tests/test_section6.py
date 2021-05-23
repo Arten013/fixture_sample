@@ -91,3 +91,19 @@ class TestInheritWork(TestBaseWork):
     @fixture
     def inherit_fixture_work(self, inherit_fixture_work):
         return inherit_fixture_work + [3, 4]
+
+
+@fixture
+def l():
+    print("fofofof")
+    return []
+
+
+@pytest.mark.parametrize(
+    "v",
+    [1, 2, 3]
+)
+def test_l(v, l):
+    l.append(v)
+    print(l)
+    assert l == [v]
