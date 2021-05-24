@@ -1,6 +1,6 @@
-# Fixtureを効率的に作るためのスコープの話
+# pytest fixtureの地味だけど重要な部分について
 
-のサンプルコードが入ったリポジトリ
+[この記事](https://blog.hoxo-m.com/entry/fixture_scope)のサンプルコードが入ったリポジトリ
 
 # ディレクトリ構成
 
