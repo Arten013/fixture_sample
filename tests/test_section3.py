@@ -1,18 +1,32 @@
 from pytest import fixture
-import pytest
+
+# fixtureスコープがfunction
+@fixture
+def foo():
+    print("start")
+    yield
+    print("end")
 
 
+def test_1(foo):
+    print("test1")
+
+
+def test_2(foo):
+    print("test2")
+
+
+# fixtureスコープがsession
 @fixture(scope="session")
-def ids():
-    return [3, 1, 4]
+def foo_session():
+    print("start")
+    yield
+    print("end")
 
 
-def test_ids_sort(ids):
-    ids.sort()
-    assert ids == [1, 3, 4]
+def test_1_session(foo_session):
+    print(f"test1 (id={id(foo_session)})")
 
 
-@pytest.mark.xfail()
-def test_ids_pop(ids):
-    ids.pop()
-    assert ids == [3, 1]
+def test_2_session(foo_session):
+    print(f"test2 (id={id(foo_session)})")
